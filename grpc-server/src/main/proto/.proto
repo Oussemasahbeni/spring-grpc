@@ -1,0 +1,30 @@
+// Specify the version of Protocol Buffers syntax (proto3 is the latest version)
+syntax = "proto3";
+
+// Define options for Java code generation
+option java_multiple_files = true; // Generates separate Java files for each message and service
+option java_package = "com.oussema.grpcserver.hello"; // Specifies the Java package for generated classes
+option java_outer_classname = "HelloProto"; // Specifies the name of the outer Java class
+
+// Define the package name for the protobuf file
+package simple;
+
+// Define the service contract
+service SimpleService {
+  // Define a unary RPC method called "greeting"
+  // It takes a "HelloRequest" message as input and returns a "HelloResponse" message
+  rpc greeting (HelloRequest) returns (HelloResponse);
+}
+
+// Define the request message
+message HelloRequest {
+  // Define a field called "name" of type "string"
+  // The number "1" is the unique field identifier used in the binary encoding
+  string name = 1;
+}
+
+// Define the response message
+message HelloResponse {
+  // Define a field called "message" of type "string"
+  string message = 1;
+}
