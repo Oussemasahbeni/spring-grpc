@@ -1,0 +1,6 @@
+spring:
+  grpc:
+    client:
+      channels:
+        local:
+          address: 0.0.0.0:9090
